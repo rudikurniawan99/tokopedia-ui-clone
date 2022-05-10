@@ -22,9 +22,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>
 )
 
-const Router = useRoutes([MainRoute])
+// const Router = useRoutes([MainRoute])
 
-const MainRoute = {
-  path: '/',
-  element: <App />
-}
+// const MainRoute = {
+//   path: '/',
+//   element: <App />
+// }
