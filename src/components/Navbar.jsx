@@ -100,18 +100,24 @@ const Navbar = () => {
           backgroundColor: 'background.paper'
         }}
       >
-        <Box
-          component='img'
-          src={LogoImage}
-          sx={{
-            height: 32,
-          }}
-        />
-        <Typography
-          sx={{
-            color: 'text.secondary'
-          }}
-        >Kategori</Typography>
+        <a href="/">
+          <Box
+            component='img'
+            src={LogoImage}
+            sx={{
+              height: 32,
+            }}
+          />
+        </a>
+        <a style={{
+          textDecoration: 'none'
+        }} href="/">
+          <Typography
+            sx={{
+              color: 'text.secondary'
+            }}
+          >Kategori</Typography>
+        </a>
         <Box
           display='flex'
           sx={{
@@ -154,15 +160,9 @@ const Navbar = () => {
         <Box
           display='flex'
         >
-          <IconButton>
-            <ShoppingCartIcon />
-          </IconButton>
-          <IconButton>
-            <NotificationIcon />
-          </IconButton>
-          <IconButton>
-            <MailIcon />
-          </IconButton>
+          <MenuIconButton icon={(<ShoppingCartIcon />)} />
+          <MenuIconButton icon={(<NotificationIcon />)} />
+          <MenuIconButton icon={(<MailIcon />)} />
           <Divider
             orientation='vertical'
             variant='middle'
@@ -203,3 +203,14 @@ const Navbar = () => {
 
 export default Navbar
 
+const MenuIconButton = ({ icon, text }) => {
+  return (
+    <IconButton
+      sx={{
+        borderRadius: 0
+      }}
+    >
+      {icon}
+    </IconButton>
+  )
+}
