@@ -1,4 +1,5 @@
 import Category from "./Category";
 import SearchBar from "./SearchBar";
+import Cart from "./Cart";
 
-export { Category, SearchBar }
+export { Category, SearchBar, Cart }

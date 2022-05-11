@@ -12,10 +12,16 @@ const Category = () => {
   return (
     <>
       <Button
+        // onMouseOver={toggleHandler}
         onClick={toggleHandler}
         ref={anchorEl}
       >
-        <Typography>
+        <Typography
+          sx={{
+            color: 'text.secondary',
+            textTransform: 'none'
+          }}
+        >
           Kategori
         </Typography>
       </Button>
@@ -24,6 +30,7 @@ const Category = () => {
         anchorEl={anchorEl.current}
         anchorOrigin={{
           vertical: 'bottom',
+          horizontal: 'left'
         }}
       >
         <ClickAwayListener
