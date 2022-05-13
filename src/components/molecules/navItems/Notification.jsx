@@ -1,5 +1,5 @@
-import { AppBar, Button, ClickAwayListener, Paper, Popover, Tab, Tabs, Box, Typography, Link } from '@mui/material'
-import { Notifications as NotificationIcon, Settings } from '@mui/icons-material'
+import { AppBar, Button, ClickAwayListener, Paper, Popover, Tab, Tabs, Box, Typography, Link, Grid, styled } from '@mui/material'
+import { AddLocation, Grid4x4, LocalShipping, Notifications as NotificationIcon, RestartAlt, Settings, WatchLater } from '@mui/icons-material'
 import { useRef, useState } from 'react'
 
 const Notification = () => {
@@ -10,6 +10,49 @@ const Notification = () => {
   const toggleHandler = () => {
     setOpen((prevOpen) => !prevOpen)
   }
+
+  const transactionMenu = [
+    {
+      title: 'Menunggu Konfirmasi',
+      icon: (<WatchLater
+        sx={{
+          fontSize: 35,
+          mx: 'auto',
+          mb: 1
+        }}
+      />)
+    },
+    {
+      title: 'Pesanan Diproses',
+      icon: (<RestartAlt
+        sx={{
+          fontSize: 35,
+          mx: 'auto',
+          mb: 1
+        }}
+      />)
+    },
+    {
+      title: 'Sedang Dikirim',
+      icon: (<LocalShipping
+        sx={{
+          fontSize: 35,
+          mx: 'auto',
+          mb: 1
+        }}
+      />)
+    },
+    {
+      title: 'Sampai Tujuan',
+      icon: (<AddLocation
+        sx={{
+          fontSize: 35,
+          mx: 'auto',
+          mb: 1
+        }}
+      />)
+    },
+  ]
 
   return (
     <>
@@ -80,7 +123,70 @@ const Notification = () => {
               />
             </Tabs>
             <TabPanel value={tabValue} index={0}>
-              panel 1j
+              <Box>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    fontSize: 13
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: 13
+                    }}
+                  >Pembelian</Typography>
+                  <Link
+                    underline='none'
+                  >Lihat Semua</Link>
+                </Box>
+                <Link
+                  underline='none'
+                  href='#'
+                >
+                  <Typography
+                    sx={{
+                      fontSize: 12,
+                      color: 'text.secondary'
+                    }}
+                  >Menunggu Pembayaran</Typography>
+                </Link>
+                <Grid
+                  container
+                  justifyContent='space-between'
+                  sx={{
+                    my: 2
+                  }}
+                >
+                  {transactionMenu.map((menu, index) => (
+                    <Grid
+                      item
+                      xs={3}
+                      key={index}
+                    >
+                      <Link
+                        underline='none'
+                        href='#'
+                      >
+                        <Box
+                          sx={{
+                            display: 'flex',
+                            flexDirection: 'column'
+                          }}
+                        >
+                          {menu.icon}
+                          <Typography
+                            sx={{
+                              fontSize: 10,
+                              textAlign: 'center',
+                            }}
+                          >{menu.title}</Typography>
+                        </Box>
+                      </Link>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Box>
             </TabPanel>
             <TabPanel value={tabValue} index={1}>
               <Box
@@ -116,8 +222,6 @@ const Notification = () => {
                 p: 1
               }}
             >
-              {/* <Link>Tandai semua dibaca</Link> */}
-              {/* <Link>Lihat Selengkapnya</Link> */}
               <Link
                 underline='none'
                 sx={{
