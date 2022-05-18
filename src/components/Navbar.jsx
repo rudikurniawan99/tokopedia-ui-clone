@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box, Button, IconButton, Divider, Paper, Typography, AppBar, Toolbar } from '@mui/material'
-import { ShoppingCart as ShoppingCartIcon, Mail as MailIcon, Notifications as NotificationIcon, Store as StoreIcon, AccountCircle as UserAccountIcon, PhoneAndroid as PhoneAndroidIcon } from '@mui/icons-material';
+import { ShoppingCart as ShoppingCartIcon, Notifications as NotificationIcon, Store as StoreIcon, AccountCircle as UserAccountIcon, PhoneAndroid as PhoneAndroidIcon } from '@mui/icons-material';
 import LogoImage from '../assets/images/logo.png'
-import { Cart, Category, Notification, SearchBar } from './molecules/navItems';
+import { Cart, Category, Message, Notification, SearchBar } from './molecules/navItems';
 
 const tokpedBranchLink = [
   {
@@ -122,7 +122,7 @@ const Navbar = () => {
         >
           <Cart />
           <Notification />
-          <MenuIconButton icon={(<MailIcon />)} />
+          <Message />
           <Divider
             orientation='vertical'
             variant='middle'
@@ -162,15 +162,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
-const MenuIconButton = ({ icon, text }) => {
-  return (
-    <IconButton
-      sx={{
-        borderRadius: 0
-      }}
-    >
-      {icon}
-    </IconButton>
-  )
-}

@@ -29,6 +29,9 @@ const Cart = () => {
           horizontal: 'left',
           vertical: 'bottom'
         }}
+        sx={{
+          overflowY: 'hidden'
+        }}
       >
         <ClickAwayListener
           onClickAway={() => setOpen(false)}

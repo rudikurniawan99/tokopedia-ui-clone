@@ -1,4 +1,4 @@
-import { Button, ClickAwayListener, Paper, Popover, Typography } from '@mui/material'
+import { Button, ClickAwayListener, Paper, Popover, Popper, Typography } from '@mui/material'
 import React, { useRef, useState } from 'react'
 
 const Category = () => {
@@ -41,7 +41,7 @@ const Category = () => {
           <Paper
             sx={{
               py: 2,
-              px: 3
+              px: 3,
             }}
           >
             <Typography>Kategori 1</Typography>

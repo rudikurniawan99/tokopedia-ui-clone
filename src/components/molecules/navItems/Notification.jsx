@@ -1,5 +1,5 @@
-import { AppBar, Button, ClickAwayListener, Paper, Popover, Tab, Tabs, Box, Typography, Link, Grid, styled } from '@mui/material'
-import { AddLocation, Grid4x4, LocalShipping, Notifications as NotificationIcon, RestartAlt, Settings, WatchLater } from '@mui/icons-material'
+import { Container, Button, ClickAwayListener, Paper, Popover, Tab, Tabs, Box, Typography, Link, Grid, IconButton } from '@mui/material'
+import { AddLocation, LocalShipping, Notifications as NotificationIcon, RestartAlt, Settings, WatchLater } from '@mui/icons-material'
 import { useRef, useState } from 'react'
 
 const Notification = () => {
@@ -91,14 +91,19 @@ const Notification = () => {
                   fontWeight: 600
                 }}
               >Notification</Typography>
-              <Button
-                sx={{
-                  p: 0,
-                  color: 'text.secondary'
-                }}
+
+              <Link
+                href='#'
               >
-                <Settings />
-              </Button>
+                <IconButton
+                  sx={{
+                    p: 0,
+                    color: 'text.secondary',
+                  }}
+                >
+                  <Settings />
+                </IconButton>
+              </Link>
             </Box>
             <Tabs
               value={tabValue}
@@ -138,19 +143,29 @@ const Notification = () => {
                   >Pembelian</Typography>
                   <Link
                     underline='none'
+                    href='#'
                   >Lihat Semua</Link>
                 </Box>
-                <Link
-                  underline='none'
-                  href='#'
+                <Box
+                  sx={{
+                    py: 1,
+                    '&:hover': {
+                      backgroundColor: 'grey.100'
+                    }
+                  }}
                 >
-                  <Typography
-                    sx={{
-                      fontSize: 12,
-                      color: 'text.secondary'
-                    }}
-                  >Menunggu Pembayaran</Typography>
-                </Link>
+                  <Link
+                    underline='none'
+                    href='#'
+                  >
+                    <Typography
+                      sx={{
+                        fontSize: 12,
+                        color: 'text.secondary',
+                      }}
+                    >Menunggu Pembayaran</Typography>
+                  </Link>
+                </Box>
                 <Grid
                   container
                   justifyContent='space-between'
@@ -179,6 +194,7 @@ const Notification = () => {
                             sx={{
                               fontSize: 10,
                               textAlign: 'center',
+                              color: 'text.secondary'
                             }}
                           >{menu.title}</Typography>
                         </Box>
